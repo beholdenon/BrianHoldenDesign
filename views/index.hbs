@@ -76,18 +76,15 @@
       <p id="contact-message">Let's talk! Fill out the form below.</p>
     </div>
 
-    <form id="contact-form">
+    <form id="contact-form" method="post" action="/" data-aos="fade-up" data-aos-duration="600">
       <div class="form"  data-aos="fade-up" data-aos-duration="600">
         <div class="row-2">
-          <input type="hidden" name="contact_number">
-          <input class="input-field" type="text" id="name" name="fname" placeholder="Name" onfocus="this.placeholder = ''"
-  onblur="this.placeholder = 'Name'">
+          <input class="input-field" type="text" id="fname" name="fname" placeholder="Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name'">
           
-           <input class="email" type="text" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''"
-  onblur="this.placeholder = 'Email'">
+           <input class="email" type="text" id="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'">
         </div>
 
-          <textarea name="message" rows="30" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'"></textarea>
+        <textarea name="message" id="message" rows="30" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'"></textarea>
 
         <input type="submit" class="button" value="Send">
         </div>

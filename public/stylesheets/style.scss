@@ -342,7 +342,7 @@ h1.stroke {
       text-decoration: underline;
     }
   }
-  
+
   h3 {
     font-size: 1.3em;
     margin-bottom: 5px;
@@ -744,9 +744,14 @@ body.overlay-active {
     }
   }
 }
-#contact-form.success {
-  animation: fade-out-scale 0.2s linear 0s forwards;
+
+#contact-form {
+  &.success {
+    transform: scale(0);
+    transition: transform 1s;
+  }
 }
+
 @media (min-width: 768px) {
   p {
     font-size: 1em;

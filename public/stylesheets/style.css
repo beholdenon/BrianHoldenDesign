@@ -612,7 +612,8 @@ body.overlay-active {
       opacity: 1; }
 
 #contact-form.success {
-  animation: fade-out-scale 0.2s linear 0s forwards; }
+  transform: scale(0);
+  transition: transform 1s; }
 
 @media (min-width: 768px) {
   p {

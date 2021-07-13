@@ -1,7 +1,3 @@
-
-
-
-
 class vType {
   constructor() {
     this.maxDist = 0;
@@ -24,6 +20,7 @@ class vType {
     });
   }
 }
+
 let v = new vType();
 v.init();
 
@@ -178,18 +175,6 @@ var VFont = function () {
 
 var txt = new VFont();
 
-$(window).on("scroll", function () {
-  let perc = $(window).scrollTop() / 2 / ($(window).height() / 2);
-  console.log(
-    "scrollTop: " +
-      $(window).scrollTop() +
-      " offset top: " +
-      $(".work").offset().top
-  );
-  $(".landing .inner").css("filter", "blur(" + perc * 8 + "px)");
-  $(".landing .inner").css("opacity", 1 - (perc/4));
-});
-
 $(function () {
   var overlayOpen = false;
 
@@ -214,12 +199,14 @@ $(function () {
     // show only active overlay
     $(".overlay .overlay-outer").hide().eq(id).show();
 
-    // add class to body and trigger css animation
+    // add class to body and trigger show css animation
     $("body").addClass("overlay-active");
   }
 
   function closeOverlay() {
     overlayOpen = false;
+
+    // remove class to body and trigger hide css animation
     $('body').removeClass('overlay-active');
   }
 
@@ -245,26 +232,64 @@ $(function () {
       $("html, body").animate({ scrollTop: $(".work").offset().top }, 1000);
     });
 
-      document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        
-        // generate a five digit number for the contact_number variable
-        this.contact_number.value = Math.random() * 100000;
-        
-        // these IDs from the previous steps
-        emailjs.sendForm('service_8pls7dp', 'template_n5ugnq7', this)
-        .then(function() {
-          $('#contact-form').addClass('success');
-          $('#contact-message').html('Thank you for contacting me. I will respond shortly.')
-          console.log('SUCCESS!');
-        }, function(error) {
-          console.log('FAILED...', error);
-        });
-      });
+    $(window).on("scroll", () => {
+      let perc = $(window).scrollTop() / 2 / ($(window).height() / 2);
+      $(".landing .inner").css("filter", "blur(" + perc * 8 + "px)");
+      $(".landing .inner").css("opacity", 1 - (perc/4));
+    });
+
+  }
+
+  function validateEmail(email) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   }
 
   function initContactForm() {
-    emailjs.init("user_6gEpumhEMoMyRktID4nN9");
+    $('#contact-form').on('submit', function(e) {
+      e.preventDefault();
+
+      let numErrors = 0;
+      const form = $(this);
+
+      // capture data
+      const data = {
+        fname: $('#fname').val(),
+        email: $('#email').val(),
+        message: $('#message').val()
+      };
+
+      if(data.fname === "") {
+        numErrors += 1;
+        $('#fname').addClass("error");
+      }
+
+      if(data.email === "" || !validateEmail(data.email)) {
+        numErrors += 1;
+        $('#email').addClass("error");
+      }
+
+      if(data.message === "") {
+        numErrors += 1;
+        $('#message').addClass("error");
+      }
+
+      if(numErrors === 0) {
+        $.ajax({
+          type: form.attr('method'),
+          url: form.attr('action'),
+          data: JSON.stringify(data),
+          cache: false,
+          contentType: 'application/json; charset=utf-8',
+          error: (err) => { console.log(err); },
+          success: (data) => {
+            $('#contact-message').html('Thank you for your comments. I will respond shortly.')
+            $('#contact-form').addClass('success');
+          },
+        });
+      }
+
+    });
   }
 
   function init() {
