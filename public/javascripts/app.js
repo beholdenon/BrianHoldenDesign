@@ -292,7 +292,14 @@ $(function () {
     });
   }
 
+  function resetScroll() {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
+  }
+
   function init() {
+    resetScroll();
     initAnimation();
     initContactForm();
     initListeners();
