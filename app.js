@@ -13,6 +13,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+app.enable('trust proxy');
 
 // view engine setup
 app.engine('.hbs', exphbs({
