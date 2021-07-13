@@ -240,7 +240,7 @@ $(function () {
       }
     });
 
-    $(".main-btn").on("click", (e) => {
+    $('.view-work-btn').on("click", (e) => {
       e.preventDefault();
       $("html, body").animate({ scrollTop: $(".work").offset().top }, 1000);
     });
