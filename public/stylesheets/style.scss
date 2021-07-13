@@ -469,11 +469,8 @@ h1.stroke {
     flex: 1;
     flex-direction: column;
     padding: 10px;
-    font-size: 0.8em;
-    &:focus {
-      outline: 0;
-    }
   }
+
   textarea {
     font-family: "Avenir", sans-serif;
     font-weight: normal;
@@ -486,13 +483,28 @@ h1.stroke {
     flex: 1;
     flex-direction: column;
     padding: 10px;
-    font-size: 0.8em;
     width: 100%;
     height: 200px;
+  }
+
+  input, textarea {
+
+    font-size: 1em;
+    
     &:focus {
       outline: 0;
+      border: 0;
+    }
+
+    &.error {
+      border: 2px solid #ff0000;
+
+      &:focus {
+        border: 0;
+      }
     }
   }
+
   &::placeholder {
     color: #211d26;
   }

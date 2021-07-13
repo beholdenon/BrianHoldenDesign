@@ -1050,10 +1050,7 @@ h1.stroke span {
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 10px;
-    font-size: 0.8em; }
-    .form input:focus {
-      outline: 0; }
+    padding: 10px; }
   .form textarea {
     font-family: "Avenir", sans-serif;
     font-weight: normal;
@@ -1066,11 +1063,17 @@ h1.stroke span {
     flex: 1;
     flex-direction: column;
     padding: 10px;
-    font-size: 0.8em;
     width: 100%;
     height: 200px; }
-    .form textarea:focus {
-      outline: 0; }
+  .form input, .form textarea {
+    font-size: 1em; }
+    .form input:focus, .form textarea:focus {
+      outline: 0;
+      border: 0; }
+    .form input.error, .form textarea.error {
+      border: 2px solid #ff0000; }
+      .form input.error:focus, .form textarea.error:focus {
+        border: 0; }
   .form::placeholder {
     color: #211d26; }
   .form .button {
