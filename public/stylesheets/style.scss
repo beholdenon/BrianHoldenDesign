@@ -748,7 +748,7 @@ body.overlay-active {
 #contact-form {
   &.success {
     transform: scale(0);
-    transition: transform 1s;
+    transition: transform .5s;
   }
 }
 
