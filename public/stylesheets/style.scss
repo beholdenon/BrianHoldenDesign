@@ -98,6 +98,13 @@ body {
     display: none;
   }
 }
+
+.hide-for-small {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
 .bg {
   position: fixed;
   top: -50%;
@@ -226,9 +233,14 @@ h1.stroke {
   position: relative;
   text-align: center;
   padding: 6px 0 20px 0;
-  width: 70%;
   max-width: 600px;
   margin: 0 auto;
+  width: 80%;
+
+  @media (min-width: 768px) {
+    width: 70%;
+  }
+
   &:before {
     content: "";
     position: absolute;
@@ -239,6 +251,7 @@ h1.stroke {
     border-bottom: 3px solid #8a8a8a;
     transform: translateX(-50%);
   }
+
   h2 {
     color: #cc4040;
     text-transform: uppercase;
@@ -247,6 +260,7 @@ h1.stroke {
     font-size: 1.3em;
   }
 }
+
 .section {
   position: relative;
   background: none;
@@ -254,6 +268,7 @@ h1.stroke {
   z-index: 2;
   margin-bottom: 30px;
   transition: all 0.4s ease-in-out;
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -266,18 +281,22 @@ h1.stroke {
   max-width: 1440px;
   align-self: center;
 }
+
 .work-item {
   width: 100%;
   margin-bottom: 20px;
   flex-shrink: 1;
   flex: 0 0 auto;
+
   a {
     text-decoration: none;
   }
+
   .inner {
     margin: 20px;
     position: relative;
   }
+
   figure {
     width: 100%;
     overflow: hidden;
@@ -285,6 +304,7 @@ h1.stroke {
     padding: 0;
     display: block;
     margin-bottom: 10px;
+
     img {
       -webkit-transform: scale(1);
       transform: scale(1);
@@ -296,6 +316,7 @@ h1.stroke {
       display: block;
     }
   }
+
   &:hover {
     figure {
       img {
@@ -303,20 +324,25 @@ h1.stroke {
         filter: brightness(1.4);
       }
     }
+
     h3 {
       color: #fff;
     }
+
     h4 {
       color: #fff;
     }
+
     p {
       color: #fff;
     }
+
     .details-link {
       color: #fff;
       text-decoration: underline;
     }
   }
+  
   h3 {
     font-size: 1.3em;
     margin-bottom: 5px;
@@ -372,9 +398,14 @@ h1.stroke {
   padding-bottom: 150px;
 }
 .form {
-  padding: 0 40px;
+  padding: 0 20px;
   max-width: 900px;
   margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding: 0 40px;
+  }
+
   .row-2 {
     display: flex;
     flex: 1 0 auto;
@@ -639,14 +670,13 @@ body.overlay-active {
   box-sizing: border-box;
   flex-direction: row;
   margin: 0;
-  padding: 0;
+  padding: 0 20px;
 
   li {
     font-family: "Avenir", sans-serif;
     font-weight: bold;
     display: flex;
     position: relative;
-    width: 33%;
     flex: 1 1 auto;
     text-align: center;
     align-items: center;
@@ -655,8 +685,13 @@ body.overlay-active {
     box-sizing: border-box;
     transition: all 1s ease-out;
     justify-content: space-between;
+    width: 50%;
 
     @media (min-width: 768px) {
+      width: 33%;
+    }
+
+    @media (min-width: 992px) {
       width: 20%;
     }
     
@@ -682,16 +717,19 @@ body.overlay-active {
   .inner {
     display: flex;
   }
+
   .logos {
     display: flex;
     padding: 0;
     margin: 0 auto 40px auto;
     align-items: center;
     max-width: 1000px;
+
     li {
       list-style: none;
       margin: 0 10px;
       cursor: pointer;
+
       img {
         width: 100%;
         height: auto;
