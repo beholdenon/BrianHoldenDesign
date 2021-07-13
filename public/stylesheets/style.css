@@ -721,7 +721,7 @@ h1 {
   font-weight: bold;
   color: #8a8a8a;
   text-rendering: optimizeSpeed;
-  color: #FF5733;
+  color: #cc4040;
   width: 100%;
   user-select: none;
   line-height: 0.8em;
@@ -744,7 +744,7 @@ h2, h3, h4 {
   font-weight: bold;
   transform: scale(1);
   transition: 0.3s ease-in-out;
-  background-color: #FF5733;
+  background-color: #cc4040;
   color: #211d26;
   text-decoration: none;
   text-transform: uppercase;
@@ -782,7 +782,7 @@ h1.flex {
   justify-content: space-between; }
 
 h1.stroke span {
-  color: #FF5733;
+  color: #cc4040;
   position: relative;
   line-height: inherit; }
   h1.stroke span:after {
@@ -815,7 +815,7 @@ h1.stroke span {
     border-bottom: 3px solid #8a8a8a;
     transform: translateX(-50%); }
   .heading h2 {
-    color: #FF5733;
+    color: #cc4040;
     text-transform: uppercase;
     line-height: 0;
     letter-spacing: 2px;
@@ -827,7 +827,9 @@ h1.stroke span {
   padding: 2%;
   z-index: 2;
   margin-bottom: 30px;
-  transition: all 0.4s ease-in-out; }
+  transition: all 0.4s ease-in-out;
+  max-width: 1440px;
+  margin: 0 auto; }
   .section:last-child {
     margin-bottom: 0; }
 
@@ -836,7 +838,6 @@ h1.stroke span {
   width: 100%;
   margin: 0 auto;
   flex-flow: row wrap;
-  max-width: 1440px;
   align-self: center; }
 
 .work-item {
@@ -931,7 +932,7 @@ h1.stroke span {
     font-family: "Avenir", sans-serif;
     font-weight: bold;
     color: #211d26;
-    background: #FF5733;
+    background: #cc4040;
     width: 50%;
     height: 50px;
     border: 0;
@@ -992,7 +993,7 @@ h1.stroke span {
     transition: 0.3s ease-in-out;
     align-items: center;
     justify-content: center;
-    background: #FF5733;
+    background: #cc4040;
     width: 100%;
     margin-top: 20px;
     text-transform: uppercase;
@@ -1048,7 +1049,7 @@ h1.stroke span {
     width: 100vw;
     height: 100%;
     z-index: 2;
-    margin: 0 auto;
+    margin: 0 auto 50px auto;
     text-align: center;
     overflow-y: auto; }
     .overlay .inner .content {
@@ -1060,14 +1061,15 @@ h1.stroke span {
       font-size: 2.3em;
       margin: 0 auto 10px auto;
       text-transform: uppercase;
-      letter-spacing: 1.5px; }
+      letter-spacing: 1.5px;
+      line-height: 1em; }
     .overlay .inner h3 {
       color: #fff;
       font-size: 0.8em;
-      margin: 0 auto;
+      margin: 0 auto 10px auto;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: #FF5733; }
+      color: #cc4040; }
     .overlay .inner p {
       color: #fff;
       max-width: 700px;
@@ -1077,12 +1079,12 @@ h1.stroke span {
     font-family: "Avenir", sans-serif;
     font-weight: bold;
     color: #211d26;
-    background: #FF5733;
+    background: #cc4040;
     width: 30px;
     height: 30px;
     position: fixed;
-    top: 20px;
-    right: 30px;
+    top: 10px;
+    right: 20px;
     font-size: 17px;
     border-radius: 1000px;
     display: flex;
@@ -1093,6 +1095,10 @@ h1.stroke span {
     transition-property: transform;
     transition-delay: 0s;
     transition-duration: 0s; }
+    @media (min-width: 768px) {
+      .overlay .close-btn {
+        top: 20px;
+        right: 30px; } }
     .overlay .close-btn:hover {
       color: #fff; }
   .overlay .overlay-item {
@@ -1130,7 +1136,6 @@ h1.stroke span {
     align-items: center;
     color: #8a8a8a;
     padding: 5px;
-    box-sizing: border-box;
     transition: all 1s ease-out;
     justify-content: space-between;
     width: 50%; }
@@ -1141,7 +1146,7 @@ h1.stroke span {
       .skill-list li {
         width: 20%; } }
     .skill-list li .inner {
-      border: solid 2px #8a8a8a;
+      border: solid 2px #575757;
       padding: 10px;
       width: 100%;
       height: 100%;
