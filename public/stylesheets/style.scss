@@ -346,53 +346,26 @@ h1.stroke {
   }
 
   .row-2 {
-    display: flex;
-    flex: 1 0 auto;
-    margin-bottom: 20px;
+    display: block;
 
-    .email {
-      margin-left: 20px;
-    }
-  }
+    @media (min-width: 768px) { 
+      display: flex;
+      flex: 1 0 auto;
 
-  button {
-    @include avenir(bold);
-    color: $third-color;
-    background: $accent-color;
-    width: 50%;
-    height: 50px;
-    border: 0;
-    letter-spacing: 0.5px;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 10px;
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0;
-    font-size: 1em;
-
-    &:focus {
-      outline: 0;
-    }
-    &:hover {
-      cursor: pointer;
-      color: #fff;
+      .email {
+        margin-left: 20px;
+      }
     }
   }
 
   input { 
-    width: 50%;
+    width: 100%;
     height: 50px;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) { 
+      width: 50%;
+    }
   }
 
   textarea {
@@ -452,7 +425,7 @@ h1.stroke {
       color: #fff;
     }
   }
-  
+
   label {
     @include avenir(bold);
     color: $primary-color;

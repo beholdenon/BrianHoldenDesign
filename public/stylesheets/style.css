@@ -823,13 +823,12 @@ h1.stroke span {
 
 .section {
   position: relative;
+  max-width: 1440px;
+  margin: 0 auto 30px auto;
   background: none;
   padding: 2%;
   z-index: 2;
-  margin-bottom: 30px;
-  transition: all 0.4s ease-in-out;
-  max-width: 1440px;
-  margin: 0 auto; }
+  transition: all 0.4s ease-in-out; }
   .section:last-child {
     margin-bottom: 0; }
 
@@ -923,45 +922,20 @@ h1.stroke span {
     .form {
       padding: 0 40px; } }
   .form .row-2 {
-    display: flex;
-    flex: 1 0 auto;
-    margin-bottom: 20px; }
-    .form .row-2 .email {
-      margin-left: 20px; }
-  .form button {
-    font-family: "Avenir", sans-serif;
-    font-weight: bold;
-    color: #211d26;
-    background: #cc4040;
-    width: 50%;
-    height: 50px;
-    border: 0;
-    letter-spacing: 0.5px;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 10px;
-    font-size: 0.8em;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin-top: 20px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 0;
-    font-size: 1em; }
-    .form button:focus {
-      outline: 0; }
-    .form button:hover {
-      cursor: pointer;
-      color: #fff; }
+    display: block; }
+    @media (min-width: 768px) {
+      .form .row-2 {
+        display: flex;
+        flex: 1 0 auto; }
+        .form .row-2 .email {
+          margin-left: 20px; } }
   .form input {
-    width: 50%;
-    height: 50px; }
+    width: 100%;
+    height: 50px;
+    margin-bottom: 20px; }
+    @media (min-width: 768px) {
+      .form input {
+        width: 50%; } }
   .form textarea {
     width: 100%;
     height: 200px; }
@@ -975,7 +949,8 @@ h1.stroke span {
     flex: 1;
     flex-direction: column;
     padding: 10px;
-    font-size: 1em; }
+    font-size: 1em;
+    border-radius: 0; }
     .form input:focus, .form textarea:focus {
       outline: 0;
       border: 0; }
@@ -988,12 +963,11 @@ h1.stroke span {
   .form .button {
     font-family: "Avenir", sans-serif;
     font-weight: bold;
-    cursor: pointer;
-    transform: scale(1);
+    background: #cc4040;
+    color: #211d26;
     transition: 0.3s ease-in-out;
     align-items: center;
     justify-content: center;
-    background: #cc4040;
     width: 100%;
     margin-top: 20px;
     text-transform: uppercase;
@@ -1002,7 +976,7 @@ h1.stroke span {
     vertical-align: middle;
     padding: 0;
     font-size: 1em;
-    color: #211d26; }
+    border-radius: 0; }
     .form .button:hover {
       cursor: pointer;
       color: #fff; }
@@ -1196,18 +1170,11 @@ h1.stroke span {
   .form {
     width: 80vw; }
     .form input {
-      font-size: 1.1em;
-      border-radius: 0; }
+      font-size: 1.1em; }
     .form textarea {
-      font-size: 1.1em;
-      border-radius: 0; }
-    .form button {
-      font-size: 1.1em;
-      font-size: 1.1em;
-      border-radius: 0; }
-    .form .button {
-      font-size: 1.1em;
-      border-radius: 0; } }
+      font-size: 1.1em; }
+    .form button, .form .button {
+      font-size: 1.1em; } }
 
 @media (min-width: 576px) {
   .work-item {
