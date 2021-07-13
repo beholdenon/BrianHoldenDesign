@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "install": "npm i --unsafe-perms"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "contentful": "^8.1.4",
