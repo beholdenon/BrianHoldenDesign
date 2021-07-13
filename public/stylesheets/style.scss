@@ -206,13 +206,12 @@ h1.stroke {
 
 .section {
   position: relative;
+  max-width: 1440px;
+  margin: 0 auto 30px auto;
   background: none;
   padding: 2%;
   z-index: 2;
-  margin-bottom: 30px;
   transition: all 0.4s ease-in-out;
-  max-width: 1440px;
-  margin: 0 auto;
 
   &:last-child {
     margin-bottom: 0;
