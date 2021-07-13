@@ -798,13 +798,14 @@ h1.stroke span {
 .heading {
   position: relative;
   text-align: center;
-  padding: 6px 0 20px 0;
+  padding: 6px 0 10px 0;
   max-width: 400px;
   margin: 0 auto;
   width: 80%; }
   @media (min-width: 768px) {
     .heading {
-      width: 70%; } }
+      width: 70%;
+      padding: 6px 0 20px 0; } }
   .heading:before {
     content: "";
     position: absolute;
@@ -824,13 +825,16 @@ h1.stroke span {
 .section {
   position: relative;
   max-width: 1440px;
-  margin: 0 auto 30px auto;
+  margin: 30px auto;
   background: none;
   padding: 2%;
   z-index: 2;
   transition: all 0.4s ease-in-out; }
   .section:last-child {
     margin-bottom: 0; }
+  @media (min-width: 768px) {
+    .section {
+      margin: 0 auto 30px auto; } }
 
 .grid-container {
   display: flex;
@@ -847,7 +851,7 @@ h1.stroke span {
   .work-item a {
     text-decoration: none; }
   .work-item .inner {
-    margin: 20px;
+    margin: 20px 20px 0 20px;
     position: relative; }
   .work-item figure {
     width: 100%;
@@ -1137,9 +1141,12 @@ h1.stroke span {
 .experience .logos {
   display: flex;
   padding: 0;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 10px auto;
   align-items: center;
   max-width: 1000px; }
+  @media (min-width: 768px) {
+    .experience .logos {
+      margin: 0 auto 40px auto; } }
   .experience .logos li {
     list-style: none;
     margin: 0 10px;

@@ -175,13 +175,14 @@ h1.stroke {
 .heading {
   position: relative;
   text-align: center;
-  padding: 6px 0 20px 0;
+  padding: 6px 0 10px 0;
   max-width: 400px;
   margin: 0 auto;
   width: 80%;
 
   @media (min-width: 768px) {
     width: 70%;
+    padding: 6px 0 20px 0;
   }
 
   &:before {
@@ -207,7 +208,7 @@ h1.stroke {
 .section {
   position: relative;
   max-width: 1440px;
-  margin: 0 auto 30px auto;
+  margin: 30px auto;
   background: none;
   padding: 2%;
   z-index: 2;
@@ -215,6 +216,10 @@ h1.stroke {
 
   &:last-child {
     margin-bottom: 0;
+  }
+
+  @media (min-width: 768px) {
+    margin: 0 auto 30px auto;;
   }
 }
 
@@ -237,7 +242,7 @@ h1.stroke {
   }
 
   .inner {
-    margin: 20px;
+    margin: 20px 20px 0 20px;
     position: relative;
   }
 
@@ -623,9 +628,13 @@ h1.stroke {
   .logos {
     display: flex;
     padding: 0;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 10px auto;
     align-items: center;
     max-width: 1000px;
+
+    @media (min-width: 768px) { 
+      margin: 0 auto 40px auto;
+    }
 
     li {
       list-style: none;
