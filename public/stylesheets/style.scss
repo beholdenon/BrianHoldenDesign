@@ -1,85 +1,13 @@
 @import "../../node_modules/aos/src/sass/aos";
 
-@font-face {
-  src: url("https://res.cloudinary.com/dr6lvwubh/raw/upload/v1529908256/CompressaPRO-GX.woff2");
-  font-family: "Compressa VF";
-  font-style: normal;
-  text-rendering: optimizeLegibility;
+@mixin avenir($weight: normal) {
+  font-family: "Avenir", sans-serif;
+  font-weight: $weight;
 }
 
-@keyframes bg-animation {
-  0% {
-    transform: translate(0, 0);
-  }
-  10% {
-    transform: translate(-5%, -5%);
-  }
-  20% {
-    transform: translate(-10%, 5%);
-  }
-  30% {
-    transform: translate(5%, -10%);
-  }
-  40% {
-    transform: translate(-5%, 15%);
-  }
-  50% {
-    transform: translate(-10%, 5%);
-  }
-  60% {
-    transform: translate(15%, 0);
-  }
-  70% {
-    transform: translate(0, 10%);
-  }
-  80% {
-    transform: translate(-15%, 0);
-  }
-  90% {
-    transform: translate(10%, 5%);
-  }
-  100% {
-    transform: translate(5%, 0);
-  }
-}
-@keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-    display: none;
-  }
-}
-@keyframes fade-out-scale {
-  from {
-    opacity: 1;
-    transform: scale(1);
-  }
-  to {
-    opacity: 0;
-    transform: scale(0);
-    visibility: hidden;
-    display: none;
-  }
-}
-@keyframes scroll-in {
-  from {
-    overflow-y: hidden;
-  }
-  to {
-    overflow-y: scroll;
-  }
-}
+$primary-color: #8a8a8a;
+$accent-color: #cc4040;
+$third-color: #211d26;
 
 * {
   box-sizing: border-box;
@@ -93,11 +21,29 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-  background-color: #211d26;
+  background-color: $third-color;
   overflow-x: hidden;
 
   &::-webkit-scrollbar {
     display: none;
+  }
+
+  &.overlay-active {
+    overflow: hidden;
+    
+    .overlay {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .close-btn {
+      transform: scale(1);
+      transition-delay: .5s;
+    }
+
+    .section {
+      filter: blur(25px);
+    }
   }
 }
 
@@ -122,20 +68,20 @@ body {
   visibility: visible;
   z-index: -1;
 }
+
 p {
-  font-family: "Avenir", sans-serif;
-  font-weight: normal;
-  color: #8a8a8a;
+  @include avenir();
+  color: $primary-color;
   margin-top: 0;
   font-size: 0.9em;
 }
+
 h1 {
-  font-family: "Avenir", sans-serif;
-  font-weight: bold;
-  color: #8a8a8a;
   font-family: "Compressa VF";
+  font-weight: bold;
+  color: $primary-color;
   text-rendering: optimizeSpeed;
-  color: #cc4040;
+  color: $accent-color;
   width: 100%;
   user-select: none;
   line-height: 0.8em;
@@ -144,36 +90,24 @@ h1 {
   font-weight: 100;
   text-align: center;
   width: 100vw;
+  
   span {
-    -webkit-transform: translateY(-10px);
     transform: translateY(-10px);
     user-select: none;
   }
 }
-h2 {
-  font-family: "Avenir", sans-serif;
-  font-weight: bold;
-  color: #8a8a8a;
+
+h2, h3, h4{
+  @include avenir(bold);
+  color: $primary-color;
 }
-h3 {
-  font-family: "Avenir", sans-serif;
-  font-weight: bold;
-  color: #8a8a8a;
-}
-h4 {
-  font-family: "Avenir", sans-serif;
-  font-weight: bold;
-  color: #8a8a8a;
-}
+
 .main-btn {
-  font-family: "Avenir", sans-serif;
-  font-weight: bold;
-  -webkit-transform: scale(1);
+  @include avenir(bold);
   transform: scale(1);
-  -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
-  background-color: #cc4040;
-  color: #211d26;
+  background-color: $accent-color;
+  color: $third-color;
   text-decoration: none;
   text-transform: uppercase;
   padding: 10px 20px;
@@ -181,13 +115,16 @@ h4 {
   margin: 10px auto;
   display: inline-block;
   font-size: 0.9em;
+
   &:focus {
     color: #fff;
   }
+
   &:hover {
     color: #fff;
   }
 }
+
 .landing {
   display: flex;
   flex-direction: column;
@@ -210,15 +147,18 @@ h4 {
     }
   }
 }
+
 h1.flex {
   display: flex;
   justify-content: space-between;
 }
+
 h1.stroke {
   span {
-    color: #cc4040;
+    color: $accent-color;
     position: relative;
     line-height: inherit;
+
     &:after {
       content: attr(data-char);
       -webkit-text-stroke-width: 3px;
@@ -231,11 +171,12 @@ h1.stroke {
     }
   }
 }
+
 .heading {
   position: relative;
   text-align: center;
   padding: 6px 0 20px 0;
-  max-width: 600px;
+  max-width: 400px;
   margin: 0 auto;
   width: 80%;
 
@@ -250,12 +191,12 @@ h1.stroke {
     top: 0;
     height: 1px;
     width: 50px;
-    border-bottom: 3px solid #8a8a8a;
+    border-bottom: 3px solid $primary-color;
     transform: translateX(-50%);
   }
 
   h2 {
-    color: #cc4040;
+    color: $accent-color;
     text-transform: uppercase;
     line-height: 0;
     letter-spacing: 2px;
@@ -275,6 +216,7 @@ h1.stroke {
     margin-bottom: 0;
   }
 }
+
 .grid-container {
   display: flex;
   width: 100%;
@@ -308,9 +250,7 @@ h1.stroke {
     margin-bottom: 10px;
 
     img {
-      -webkit-transform: scale(1);
       transform: scale(1);
-      -webkit-transition: 0.3s ease-in-out;
       transition: 0.3s ease-in-out;
       width: 100%;
       height: auto;
@@ -351,38 +291,32 @@ h1.stroke {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-top: 0;
-    -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
+
   h4 {
     font-size: 0.6em;
     margin-bottom: 3px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
+
   .details-link {
-    font-family: "Avenir", sans-serif;
-    font-weight: bold;
+    @include avenir(bold);
     text-transform: uppercase;
     text-decoration: none;
-    color: #8a8a8a;
+    color: $primary-color;
     font-size: 0.9em;
     letter-spacing: 1px;
-    -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
+
   p {
-    -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
   }
 }
@@ -390,15 +324,18 @@ h1.stroke {
   .work-item {
     width: 50%;
     margin-bottom: 0;
+
     h3 {
       text-align: center;
       font-size: 0.9em;
     }
   }
 }
+
 .contact {
   padding-bottom: 150px;
 }
+
 .form {
   padding: 0 20px;
   max-width: 900px;
@@ -412,17 +349,18 @@ h1.stroke {
     display: flex;
     flex: 1 0 auto;
     margin-bottom: 20px;
+
     .email {
       margin-left: 20px;
     }
   }
+
   button {
-    color: #fff;
-    font-family: "Avenir", sans-serif;
-    font-weight: normal;
+    @include avenir(bold);
+    color: $third-color;
+    background: $accent-color;
     width: 50%;
     height: 50px;
-    background: #fff;
     border: 0;
     letter-spacing: 0.5px;
     display: flex;
@@ -431,15 +369,9 @@ h1.stroke {
     padding: 10px;
     font-size: 0.8em;
     cursor: pointer;
-    font-family: "Avenir", sans-serif;
-    font-weight: bold;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     align-items: center;
     justify-content: center;
-    background: #cc4040;
     width: 100%;
     margin-top: 20px;
     text-transform: uppercase;
@@ -448,7 +380,7 @@ h1.stroke {
     vertical-align: middle;
     padding: 0;
     font-size: 1em;
-    color: #211d26;
+
     &:focus {
       outline: 0;
     }
@@ -457,40 +389,28 @@ h1.stroke {
       color: #fff;
     }
   }
-  input {
-    font-family: "Avenir", sans-serif;
-    font-weight: normal;
+
+  input { 
     width: 50%;
     height: 50px;
-    background: #fff;
-    border: 0;
-    letter-spacing: 0.5px;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 10px;
   }
 
   textarea {
-    font-family: "Avenir", sans-serif;
-    font-weight: normal;
-    width: 50%;
-    height: 50px;
-    background: #fff;
-    border: 0;
-    letter-spacing: 0.5px;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 10px;
     width: 100%;
     height: 200px;
   }
 
   input, textarea {
-
+    @include avenir();
+    background: #fff;
+    border: 0;
+    letter-spacing: 0.5px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    padding: 10px;
     font-size: 1em;
-    
+
     &:focus {
       outline: 0;
       border: 0;
@@ -506,19 +426,17 @@ h1.stroke {
   }
 
   &::placeholder {
-    color: #211d26;
+    color: $third-color;
   }
+
   .button {
+    @include avenir(bold);
     cursor: pointer;
-    font-family: "Avenir", sans-serif;
-    font-weight: bold;
-    -webkit-transform: scale(1);
     transform: scale(1);
-    -webkit-transition: 0.3s ease-in-out;
     transition: 0.3s ease-in-out;
     align-items: center;
     justify-content: center;
-    background: #cc4040;
+    background: $accent-color;
     width: 100%;
     margin-top: 20px;
     text-transform: uppercase;
@@ -527,16 +445,16 @@ h1.stroke {
     vertical-align: middle;
     padding: 0;
     font-size: 1em;
-    color: #211d26;
+    color: $third-color;
+
     &:hover {
       cursor: pointer;
       color: #fff;
     }
   }
   label {
-    font-family: "Avenir", sans-serif;
-    font-weight: bold;
-    color: #8a8a8a;
+    @include avenir(bold);
+    color: $primary-color;
     text-transform: uppercase;
     font-size: 1em;
     display: block;
@@ -544,6 +462,7 @@ h1.stroke {
     margin-bottom: 10px;
   }
 }
+
 .overlay {
   width: 100vw;
   height: 100vh;
@@ -554,14 +473,9 @@ h1.stroke {
   z-index: 3333;
   top: 0;
   left: 0;
-  -webkit-transition: all 500ms cubic-bezier(1, 0, 0, 1);
-  -moz-transition: all 500ms cubic-bezier(1, 0, 0, 1);
-  -o-transition: all 500ms cubic-bezier(1, 0, 0, 1);
   transition: all 500ms cubic-bezier(1, 0, 0, 1);
-  -webkit-transition-timing-function: cubic-bezier(1, 0, 0, 1);
-  -moz-transition-timing-function: cubic-bezier(1, 0, 0, 1);
-  -o-transition-timing-function: cubic-bezier(1, 0, 0, 1);
   transition-timing-function: cubic-bezier(1, 0, 0, 1);
+
   .bg {
     position: fixed;
     top: -50%;
@@ -570,16 +484,18 @@ h1.stroke {
     bottom: -50%;
     width: 200%;
     height: 200vh;
-    background: transparent url('https://assets.codepen.io/80072/noise-transparent.png') repeat 0 0;
+    background: transparent url('/images/noise-transparent.png') repeat 0 0;
     background-repeat: repeat;
     animation: bg-animation 0.2s infinite;
     opacity: 0.9;
     visibility: visible;
     z-index: -1;
   }
+
   .inner::-webkit-scrollbar {
     display: none;
   }
+
   .inner {
     position: relative;
     width: 100vw;
@@ -589,12 +505,12 @@ h1.stroke {
     text-align: center;
     overflow-y: auto;
 
-
     .content {
       width: 80%;
       max-width: 1000px;
       margin: 60px auto;
     }
+
     h2 {
       color: #fff;
       font-size: 2.3em;
@@ -602,14 +518,16 @@ h1.stroke {
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
+
     h3 {
       color: #fff;
       font-size: 0.8em;
       margin: 0 auto;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      color: #cc4040;
+      color: $accent-color;
     }
+
     p {
       color: #fff;
       max-width: 700px;
@@ -617,17 +535,17 @@ h1.stroke {
       color: #fff;
     }
   }
+
   .close-btn {
-    font-family: "Avenir", sans-serif;
-    font-weight: bold;
+    @include avenir(bold);
+    color: $third-color;
+    background: $accent-color;
     width: 30px;
     height: 30px;
     position: fixed;
     top: 20px;
     right: 30px;
     font-size: 17px;
-    color: #211d26;
-    background: #cc4040;
     border-radius: 1000px;
     display: flex;
     align-items: center;
@@ -637,17 +555,25 @@ h1.stroke {
     transition-property: transform;
     transition-delay: 0s;
     transition-duration: 0s;
+    
     &:hover {
       color: #fff;
     }
   }
+
   .overlay-item {
     margin-bottom: 30px;
-    padding: 20px;
+    padding: 8px;
     background: #fff;
-    p {
-      color: #8a8a8a;
+
+    @media (min-width: 768px) {
+      padding: 15px;
     }
+
+    p {
+      color: $primary-color;
+    }
+
     img {
       width: 100%;
       height: auto;
@@ -659,22 +585,6 @@ h1.stroke {
   margin-bottom: 60px;
 }
 
-body.overlay-active {
-  overflow: hidden;
-  .overlay {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  .close-btn {
-    transform: scale(1);
-    transition-delay: .5s;
-  }
-
-  .section {
-    filter: blur(25px);
-  }
-}
 
 .skill-list {
   list-style: none;
@@ -687,14 +597,13 @@ body.overlay-active {
   padding: 0 20px;
 
   li {
-    font-family: "Avenir", sans-serif;
-    font-weight: bold;
+    @include avenir(bold);
     display: flex;
     position: relative;
     flex: 1 1 auto;
     text-align: center;
     align-items: center;
-    color: #8a8a8a;
+    color: $primary-color;
     padding: 5px;
     box-sizing: border-box;
     transition: all 1s ease-out;
@@ -710,7 +619,7 @@ body.overlay-active {
     }
     
     .inner {
-      border: solid 2px #8a8a8a;
+      border: solid 2px $primary-color;
       padding: 10px;
       width: 100%;
       height: 100%;
@@ -721,8 +630,8 @@ body.overlay-active {
 
     &:hover {
       .inner {
-        color: #211d26;
-        background: #8a8a8a;
+        color: $third-color;
+        background: $primary-color;
       }
     }
   }
@@ -820,5 +729,86 @@ body.overlay-active {
 @media (min-width: 1200px) {
   .work-item {
     width: 33.33333%;
+  }
+}
+
+@font-face {
+  src: url("https://res.cloudinary.com/dr6lvwubh/raw/upload/v1529908256/CompressaPRO-GX.woff2");
+  font-family: "Compressa VF";
+  font-style: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@keyframes bg-animation {
+  0% {
+    transform: translate(0, 0);
+  }
+  10% {
+    transform: translate(-5%, -5%);
+  }
+  20% {
+    transform: translate(-10%, 5%);
+  }
+  30% {
+    transform: translate(5%, -10%);
+  }
+  40% {
+    transform: translate(-5%, 15%);
+  }
+  50% {
+    transform: translate(-10%, 5%);
+  }
+  60% {
+    transform: translate(15%, 0);
+  }
+  70% {
+    transform: translate(0, 10%);
+  }
+  80% {
+    transform: translate(-15%, 0);
+  }
+  90% {
+    transform: translate(10%, 5%);
+  }
+  100% {
+    transform: translate(5%, 0);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+    display: none;
+  }
+}
+@keyframes fade-out-scale {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+    visibility: hidden;
+    display: none;
+  }
+}
+@keyframes scroll-in {
+  from {
+    overflow-y: hidden;
+  }
+  to {
+    overflow-y: scroll;
   }
 }
