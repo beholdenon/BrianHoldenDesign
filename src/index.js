@@ -1,5 +1,7 @@
 import vType from './vType.js';
 import vFont from './vFont.js';
+import AOS from 'aos';
+import $ from 'jquery';
 
 $(() => {
   var overlayOpen = false;
