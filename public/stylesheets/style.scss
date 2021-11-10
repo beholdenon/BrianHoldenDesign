@@ -17,6 +17,10 @@ html {
   height: 100%;
 }
 
+.grecaptcha-badge { 
+    visibility: hidden;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -550,18 +554,13 @@ h1.stroke {
 
   .overlay-item {
     margin-bottom: 30px;
-    padding: 8px;
     background: #fff;
-
-    @media (min-width: 768px) {
-      padding: 15px;
-    }
 
     p {
       color: $primary-color;
     }
 
-    img {
+    img, video {
       width: 100%;
       height: auto;
     }
