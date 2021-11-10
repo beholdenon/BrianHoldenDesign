@@ -1036,16 +1036,19 @@ h1.stroke span {
     text-align: center;
     overflow-y: auto; }
     .overlay .inner .content {
-      width: 80%;
+      width: 90%;
       max-width: 1000px;
       margin: 60px auto; }
     .overlay .inner .work-overlay-title {
       color: #fff;
-      font-size: 2.3em;
+      font-size: 1.8em;
       margin: 0 auto 10px auto;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       line-height: 1em; }
+      @media (min-width: 768px) {
+        .overlay .inner .work-overlay-title {
+          font-size: 2.3em; } }
     .overlay .inner .work-overlay-brand {
       font-size: 0.8em;
       margin: 0 auto 10px auto;
@@ -1089,7 +1092,10 @@ h1.stroke span {
     .overlay .close-btn:hover {
       color: #fff; }
   .overlay .overlay-item {
-    margin-bottom: 40px; }
+    margin-bottom: 20px; }
+    @media (min-width: 768px) {
+      .overlay .overlay-item {
+        margin-bottom: 40px; } }
     .overlay .overlay-item p {
       color: #fff; }
     .overlay .overlay-item img, .overlay .overlay-item video {

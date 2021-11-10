@@ -491,18 +491,22 @@ h1.stroke {
     overflow-y: auto;
 
     .content {
-      width: 80%;
+      width: 90%;
       max-width: 1000px;
       margin: 60px auto;
     }
 
     .work-overlay-title {
       color: #fff;
-      font-size: 2.3em;
+      font-size: 1.8em;
       margin: 0 auto 10px auto;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       line-height: 1em;
+      
+      @media (min-width: 768px) {
+        font-size: 2.3em;
+      }
     }
 
     .work-overlay-brand {
@@ -559,7 +563,11 @@ h1.stroke {
   }
 
   .overlay-item {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      margin-bottom: 40px;
+    }
 
     p {
       color: #fff;
