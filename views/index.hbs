@@ -130,12 +130,15 @@
               <div class="overlay-item-outer">
                 {{#each fields.media}}
                 <div class="item-inner">
+                  
                   {{#eq this.fields.file.contentType 'image/jpeg'}}
-                  <img data-src="{{this.fields.file.url}}" alt="{{../title}}" />
+                  {{#if ../../link}}<a href="{{../../link}}">{{/if}}
+                    <img data-src="{{this.fields.file.url}}" alt="{{../title}}" />
+                  {{#if ../../link}}</a>{{/if}}
                   {{/eq}}
 
                   {{#eq this.fields.file.contentType 'video/mp4'}}
-                  <video muted autoplay loop>
+                  <video muted autoplay loop playsinline>
                     <source src="{{this.fields.file.url}}" type="video/mp4">
                   </video>
                   {{/eq}}
@@ -144,7 +147,7 @@
               </div>
           {{/eq}}
 
-          
+
             </div>
           {{/each}}
 
