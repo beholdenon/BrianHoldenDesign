@@ -109,24 +109,43 @@
       {{#each projects}}
       {{#with fields}}
       <div class="overlay-outer" data-index="{{@index}}">
+        
         <div class="overlay-header">
-          <h3 id="overlay-brand">{{client}}</h3>
-          <h2 id="overlay-name">{{title}}</h2>
+          <h3 class="work-overlay-brand" id="overlay-brand">{{client}}</h3>
+          <h2 class="work-overlay-title" id="overlay-name">{{title}}</h2>
           <p id="overlay-desc">{{longDescription}}</p>
         </div>
+
         <div class="work-container">
-          {{#each work}}
+          
+          {{#each workOverlay}}
           <div class="overlay-item">
-            {{#eq fields.file.contentType 'image/jpeg'}}
-            <img data-src="{{fields.file.url}}" alt="{{../title}}" />
+
+            {{#eq sys.contentType.sys.id 'workHeading'}}
+              {{#if fields.title}}<h2 class="work-item-title">{{fields.title}}</h2>{{/if}}
+              {{#if fields.desc}}<p>{{fields.desc}}</p>{{/if}}
             {{/eq}}
 
-            {{#eq fields.file.contentType 'video/mp4'}}
-            <video muted autoplay loop>
-              <source src="{{fields.file.url}}" type="video/mp4">
-            </video>
-            {{/eq}}
-          </div>
+            {{#eq sys.contentType.sys.id 'workItem'}}
+              <div class="overlay-item-outer">
+                {{#each fields.media}}
+                <div class="item-inner">
+                  {{#eq this.fields.file.contentType 'image/jpeg'}}
+                  <img data-src="{{this.fields.file.url}}" alt="{{../title}}" />
+                  {{/eq}}
+
+                  {{#eq this.fields.file.contentType 'video/mp4'}}
+                  <video muted autoplay loop>
+                    <source src="{{this.fields.file.url}}" type="video/mp4">
+                  </video>
+                  {{/eq}}
+                </div>
+                {{/each}}
+              </div>
+          {{/eq}}
+
+          
+            </div>
           {{/each}}
 
           {{#if link}}

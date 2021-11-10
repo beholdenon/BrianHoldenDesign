@@ -671,6 +671,9 @@ body[data-aos-easing="ease-in-out-quart"] [data-aos], [data-aos][data-aos][data-
 html {
   height: 100%; }
 
+.grecaptcha-badge {
+  visibility: hidden; }
+
 body {
   padding: 0;
   margin: 0;
@@ -980,7 +983,9 @@ h1.stroke span {
     vertical-align: middle;
     padding: 0;
     font-size: 1em;
-    border-radius: 0; }
+    border-radius: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none; }
     .form .button:hover {
       cursor: pointer;
       color: #fff; }
@@ -1034,15 +1039,14 @@ h1.stroke span {
       width: 80%;
       max-width: 1000px;
       margin: 60px auto; }
-    .overlay .inner h2 {
+    .overlay .inner .work-overlay-title {
       color: #fff;
       font-size: 2.3em;
       margin: 0 auto 10px auto;
       text-transform: uppercase;
       letter-spacing: 1.5px;
       line-height: 1em; }
-    .overlay .inner h3 {
-      color: #fff;
+    .overlay .inner .work-overlay-brand {
       font-size: 0.8em;
       margin: 0 auto 10px auto;
       text-transform: uppercase;
@@ -1051,7 +1055,12 @@ h1.stroke span {
     .overlay .inner p {
       color: #fff;
       max-width: 700px;
-      margin: 0 auto 20px auto;
+      margin: 0 auto 20px auto; }
+    .overlay .inner .work-item-title {
+      font-size: 1em;
+      margin: 0 auto 5px auto;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
       color: #fff; }
   .overlay .close-btn {
     font-family: "Avenir", sans-serif;
@@ -1080,17 +1089,19 @@ h1.stroke span {
     .overlay .close-btn:hover {
       color: #fff; }
   .overlay .overlay-item {
-    margin-bottom: 30px;
-    padding: 8px;
-    background: #fff; }
-    @media (min-width: 768px) {
-      .overlay .overlay-item {
-        padding: 15px; } }
+    margin-bottom: 40px; }
     .overlay .overlay-item p {
-      color: #8a8a8a; }
-    .overlay .overlay-item img {
+      color: #fff; }
+    .overlay .overlay-item img, .overlay .overlay-item video {
       width: 100%;
       height: auto; }
+
+.overlay-item-outer {
+  width: 100%;
+  display: flex;
+  margin: 0 -10px; }
+  .overlay-item-outer > div {
+    padding: 0 10px; }
 
 .overlay-header {
   margin-bottom: 60px; }

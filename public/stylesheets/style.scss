@@ -496,7 +496,7 @@ h1.stroke {
       margin: 60px auto;
     }
 
-    h2 {
+    .work-overlay-title {
       color: #fff;
       font-size: 2.3em;
       margin: 0 auto 10px auto;
@@ -505,8 +505,7 @@ h1.stroke {
       line-height: 1em;
     }
 
-    h3 {
-      color: #fff;
+    .work-overlay-brand {
       font-size: 0.8em;
       margin: 0 auto 10px auto;
       text-transform: uppercase;
@@ -518,6 +517,13 @@ h1.stroke {
       color: #fff;
       max-width: 700px;
       margin: 0 auto 20px auto;
+    }
+
+    .work-item-title {
+      font-size: 1em;
+      margin: 0 auto 5px auto;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
       color: #fff;
     }
   }
@@ -553,17 +559,26 @@ h1.stroke {
   }
 
   .overlay-item {
-    margin-bottom: 30px;
-    background: #fff;
+    margin-bottom: 40px;
 
     p {
-      color: $primary-color;
+      color: #fff;
     }
 
     img, video {
       width: 100%;
       height: auto;
     }
+  }
+}
+
+.overlay-item-outer {
+  width: 100%;
+  display: flex;
+  margin: 0 -10px;
+
+  >div {
+    padding: 0 10px;
   }
 }
 
