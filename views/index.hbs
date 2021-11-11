@@ -134,7 +134,7 @@
                   {{#if ../../link}}<a href="{{../../link}}">{{/if}}
 
                   {{#eq this.fields.file.contentType 'image/jpeg'}}
-                    <img data-src="{{this.fields.file.url}}" alt="{{../../title}}" />
+                    <img src="{{this.fields.file.url}}" alt="{{../../title}}" />
                   {{/eq}}
 
                   {{#eq this.fields.file.contentType 'video/mp4'}}

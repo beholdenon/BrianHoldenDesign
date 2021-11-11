@@ -73,11 +73,6 @@ $(() => {
       $("html, body").animate({ scrollTop: $(".work").offset().top }, 1000);
     });
 
-    $(window).on('scroll', () => {
-      let perc = $(window).scrollTop() / 2 / ($(window).height() / 2);
-      $('.landing .inner').css('filter', "blur(" + perc * 8 + "px)");
-      $('.landing .inner').css('opacity', 1 - (perc/4));
-    });
 
   }
 

@@ -1105,7 +1105,7 @@ h1.stroke span {
 .overlay-item-outer {
   width: 100%;
   display: block; }
-  @media (min-width: 450px) {
+  @media (min-width: 481px) {
     .overlay-item-outer {
       display: flex;
       margin: 0 -10px; } }
@@ -1114,7 +1114,7 @@ h1.stroke span {
 
 .overlay-item-inner {
   margin-bottom: 20px; }
-  @media (min-width: 450px) {
+  @media (min-width: 481px) {
     .overlay-item-inner {
       margin-bottom: 0; } }
 
