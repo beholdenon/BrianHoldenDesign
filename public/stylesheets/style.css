@@ -1104,10 +1104,19 @@ h1.stroke span {
 
 .overlay-item-outer {
   width: 100%;
-  display: flex;
-  margin: 0 -10px; }
+  display: block; }
+  @media (min-width: 450px) {
+    .overlay-item-outer {
+      display: flex;
+      margin: 0 -10px; } }
   .overlay-item-outer > div {
     padding: 0 10px; }
+
+.overlay-item-inner {
+  margin-bottom: 20px; }
+  @media (min-width: 450px) {
+    .overlay-item-inner {
+      margin-bottom: 0; } }
 
 .overlay-header {
   margin-bottom: 60px; }
