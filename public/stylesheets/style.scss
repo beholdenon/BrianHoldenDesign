@@ -584,7 +584,7 @@ h1.stroke {
   width: 100%;
   display: block;
 
-  @media (min-width: 450px) {
+  @media (min-width: 481px) {
     display: flex;
     margin: 0 -10px;
   }
@@ -597,7 +597,7 @@ h1.stroke {
 .overlay-item-inner {
   margin-bottom: 20px;
 
-  @media (min-width: 450px) {
+  @media (min-width: 481px) {
     margin-bottom: 0;
   }
 }
